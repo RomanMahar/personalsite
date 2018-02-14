@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load recipe_tags wagtailcore_tags %}
+
+{% block content %}
+		<h3>{{page}}</h3>
+		{% if page.recipe_in_recipe.all|length > 0 %}
+		<div class="card subrecipes">
+			{% for subrecipe in page.recipe_in_recipe.all %}
+			 <div class="card-header">
+			 	<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#subrecipeCollapse-{{ forloop.counter }}" aria-expanded="false" aria-controls="subrecipeCollapse-{{ forloop.counter }}">
+			 	{{subrecipe.recipe_in_recipe_page}}
+			 	</button>
+			 </div>
+			 <div class="card-body collapse show" id="subrecipeCollapse-{{ forloop.counter }}">
+				 {% for ingredi in subrecipe.recipe_in_recipe_page.ingredient_items.all %}
+				  <p>{{ ingredi.amount }} {{ ingredi.name_of_ingredient }}</p>
+				 {% endfor %}
+			 </div>
+			{% endfor %}
+		</div>
+		{% endif %}
+		<ul class="ingredients-in-recipe">
+			{% for ingred in page.ingredient_items.all %}
+			 <li>{{ingred.amount}} {{ingred.name_of_ingredient}}</li>
+			 {% if ingred.this_or_next %}
+			 <li class="this-or-next">Or</li>
+			 {% endif %}
+			{% endfor %}
+		</ul>
+{% endblock %}

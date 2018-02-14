@@ -1,0 +1,34 @@
+{% load menu_tags navigation_tags wagtailcore_tags %}
+
+{% block navbar %}
+<header class="top-menu-bar">
+	<div class="top-menu logo-holder">
+		<h1 class="logo">or.ca</h1>
+	</div>
+	<nav class="top-menu nav-section">
+		{# Homenav start. renders only if on homepage, i.e. if path is '/' #}
+		<ul id="top-nav-items" class="navbar nav-ul">
+		{% if request.get_full_path == "/" %}
+			{% for section in homepageitems %}
+				<li class="nav-section home-nav-section">
+					<a href="#section-{{ forloop.counter }}">{{ section.title }}</a>
+					{# <a href="#{{ section.title|cut:" " }}">{{ section.title }}</a> #}
+				</li>
+			{% endfor %}
+				<li class="nav-section home-nav-section">
+					<a href="#contact-us">Contact me</a>
+				</li>
+				<li class="nav-section home-nav-section">
+					{% main_menu %}
+				</li>
+					
+		{% else %}
+				<li class="nav-section home-nav-section">
+					<a href="#contact-us">Contact me</a>
+				</li>
+		{% endif %}
+		</ul>
+		{# End of Homenav #}
+	</nav>
+</header>
+{% endblock %}

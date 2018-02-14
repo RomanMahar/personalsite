@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load recipe_tags wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+<main id="RecipeIndexPage" class="index-page-content">
+	<div class="row">
+		<div class="col-sm-9">
+			{% for item in RecipeIndex %}
+				{% with itemid=item.title|cut:" " %}
+				{% if not item.subrecipe_only %}
+					<h3>{{item}}</h3>
+					{% if item.recipe_in_recipe.all|length > 0 %}
+					<div class="card subrecipes">
+						{% for subrecipe in item.recipe_in_recipe.all %}
+						 <div class="card-header">
+						 	<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#{{ itemid }}subrecipeCollapse-{{ forloop.counter }}" aria-expanded="false" aria-controls="subrecipeCollapse-{{ forloop.counter }}">
+						 	{{subrecipe.recipe_in_recipe_page}}
+						 	</button>
+						 </div>
+						 <div class="card-body collapse show" id="{{itemid}}subrecipeCollapse-{{ forloop.counter }}">
+							 {% for subIngredient in subrecipe.recipe_in_recipe_page.ingredient_items.all %}
+							  <p>{{ subIngredient.amount }} {{ subIngredient.name_of_ingredient }}</p>
+							 {% endfor %}
+						 </div>
+						{% endfor %}
+					</div>
+					{% endif %}
+					<ul>
+						{% for ingred in item.ingredient_items.all %}
+						 <li>{{ingred.amount}} {{ingred.name_of_ingredient}}</li>
+						{% endfor %}
+					</ul>
+					{% endif %} 
+				{% endwith %} 
+			{% endfor %}
+		</div>
+		<div class="col-md-3 featured-recipes">
+			{% if RecipeIndex.all|length > 0 %}
+				<h4 class="featured-recipes-heading">
+					Featured Recipes
+				</h4>
+			{% endif%}
+			{% for item in RecipeIndex %}
+				{% with itemid=item.title|cut:" " %}
+					{% if item.featured_recipe %}
+					<div class="card-holder">
+						
+						<div class="card image-card flip-card">
+							<div class="card-front">
+								<div class="card-image-section">
+									{% if item.main_image %}
+										{% image item.main_image fill-1000x750-c75 as sectionPic %}
+										<img src="{{sectionPic.url}}" alt="" class="card-image">
+									{% endif %}
+								</div>
+								<div class="card-header side">
+									<h5 class="featured-recipe-name">{{ item }}</h5>
+									<ul class="featured-recipe-ingredients">
+										{% for ingred in item.ingredient_items.all %}
+										 <li>
+										 	<span class="ingredient-amount">
+										 		{{ingred.amount}}
+										 	</span> 
+										 	{{ingred.name_of_ingredient}}
+										 </li>
+										 {% if ingred.this_or_next %}
+										 <li class="this-or-next">Or</li>
+										 {% endif %}
+										{% endfor %}
+									</ul>
+									<div>
+										<a class="open-featured-recipe" href="{{ item.url }}">go to recipe</a>
+									</div>
+								</div>
+							</div>
+
+							{# backside of card #}
+							{% comment %}
+							<div class="card-back side">
+								<h5 class="featured-recipe-name">{{ item }}</h5>
+								<ul class="featured-recipe-ingredients">
+									{% for ingred in item.ingredient_items.all %}
+									 <li>
+									 	<span class="ingredient-amount">
+									 		{{ingred.amount}}
+									 	</span> 
+									 	{{ingred.name_of_ingredient}}
+									 </li>
+									 {% if ingred.this_or_next %}
+									 <li class="this-or-next">Or</li>
+									 {% endif %}
+									{% endfor %}
+								</ul>
+								<div>
+									<a class="open-featured-recipe" href="{{ item.url }}">go to recipe</a>
+								</div>
+							</div>
+							{% endcomment %}
+							
+						</div>
+					</div>
+					{% endif %}
+				{% endwith %}
+			{% endfor %}
+		</div>
+	</div>	
+</main>
+
+	
+		
+
+{% endblock %}

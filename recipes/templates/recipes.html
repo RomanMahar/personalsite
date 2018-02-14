@@ -1,0 +1,35 @@
+{% load recipe_tags wagtailcore_tags %}
+
+{% block recipe_block %}
+
+	{% for item in recipes %}
+		{% if not item.subrecipe_only %}
+			{% with itemid=item.title|cut:" " %}
+			<h3>{{item}}</h3>
+			{% if item.recipe_in_recipe.all|length > 0 %}
+			<div class="card subrecipes">
+				{% for subrecipe in item.recipe_in_recipe.all %}
+				 <div class="card-header">
+				 	<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#{{itemid}}subrecipeCollapse-{{ forloop.counter }}" aria-expanded="false" aria-controls="subrecipeCollapse-{{ forloop.counter }}">
+				 	{{subrecipe.recipe_in_recipe_page}}
+				 	</button>
+				 </div>
+				 <div class="card-body collapse show" id="{{itemid}}subrecipeCollapse-{{ forloop.counter }}">
+					 {% for subIngredient in subrecipe.recipe_in_recipe_page.ingredient_items.all %}
+					  <p>{{ subIngredient.amount }} {{ subIngredient.name_of_ingredient }}</p>
+					 {% endfor %}
+				 </div>
+				{% endfor %}
+			</div>
+			{% endif %}
+			<ul>
+				{% for ingred in item.ingredient_items.all %}
+				 <li>{{ingred.amount}} {{ingred.name_of_ingredient}}</li>
+				{% endfor %}
+			</ul>
+			{% endwith %} 
+		{% endif %} 
+	{% endfor %}
+		
+
+{% endblock %}

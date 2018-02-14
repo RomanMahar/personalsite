@@ -1,0 +1,15 @@
+Django>=1.9,<1.10
+wagtail>=1.4.6,<1.5
+beautifulsoup4==4.6.0
+django-debug-toolbar==1.9.1
+django-modelcluster==1.1
+django-taggit==0.18.3
+django-treebeard==4.2.0
+djangorestframework==3.7.7
+html5lib==0.999999
+Pillow==5.0.0
+pytz==2017.3
+six==1.11.0
+sqlparse==0.2.4
+Unidecode==1.0.22
+Willow==0.3.1

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags wagtailcore_tags recipe_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+<main class="hero">
+
+    {% if self.body %}
+    <div class="container">    	
+	    <div class="row">
+	        <div class="col-lg-6">
+	        	{{ page.body|richtext }}
+	        </div>
+	        <div class="col-lg-6">
+	        	
+	        </div>
+	    </div>
+    </div>
+    {% endif %}
+		​
+</main> 
+
+<div>
+	
+		{% recipes_tag %}
+	
+</div>
+
+<div class="homepage-sections container">
+	{% for subpage in homePageSection %}
+	<section class="homepage-section {{ subpage.sectionClassName }} {{ subpage.orientation }}-orientation">
+			{# template section for right-oriented homepage sections #}
+			{% if subpage.orientation == "right" %}
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="section-title text-center hide-md">{{ subpage.title }}</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-7">
+					{% if subpage.main_image %}
+						{% image subpage.main_image width-1000 as sectionPic %}
+						<img src="{{sectionPic.url}}" alt="" class="homepage-section-img">
+					{% endif %}
+					
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-5">
+					<h2 class="section-title hide-sm">{{ subpage.title }}</h2>
+					<div class="section-body">
+						{{ subpage.body|richtext }}
+					</div>
+				</div>
+			</div>
+			{% endif%}
+			{# template section for right-oriented homepage sections #}	
+			{% if subpage.orientation == "left" %}
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="section-title">{{ subpage.title }}</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-5">
+					<div class="section-body">
+						{{ subpage.body|richtext }}
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-7">
+					{% if subpage.main_image %}
+						{% image subpage.main_image width-600 class="hero-image" %}
+					{% endif %}					
+				</div>
+			</div>
+			{% endif%}	
+	</section>
+	{% endfor %}
+</div>
+
+{% endblock %}
