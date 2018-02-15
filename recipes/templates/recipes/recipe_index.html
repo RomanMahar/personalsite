@@ -5,34 +5,36 @@
 <main id="RecipeIndexPage" class="index-page-content">
 	<div class="row">
 		<div class="col-sm-9">
-			{% for item in RecipeIndex %}
-				{% with itemid=item.title|cut:" " %}
-				{% if not item.subrecipe_only %}
-					<h3>{{item}}</h3>
-					{% if item.recipe_in_recipe.all|length > 0 %}
-					<div class="card subrecipes">
-						{% for subrecipe in item.recipe_in_recipe.all %}
-						 <div class="card-header">
-						 	<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#{{ itemid }}subrecipeCollapse-{{ forloop.counter }}" aria-expanded="false" aria-controls="subrecipeCollapse-{{ forloop.counter }}">
-						 	{{subrecipe.recipe_in_recipe_page}}
-						 	</button>
-						 </div>
-						 <div class="card-body collapse show" id="{{itemid}}subrecipeCollapse-{{ forloop.counter }}">
-							 {% for subIngredient in subrecipe.recipe_in_recipe_page.ingredient_items.all %}
-							  <p>{{ subIngredient.amount }} {{ subIngredient.name_of_ingredient }}</p>
-							 {% endfor %}
-						 </div>
-						{% endfor %}
-					</div>
-					{% endif %}
-					<ul>
-						{% for ingred in item.ingredient_items.all %}
-						 <li>{{ingred.amount}} {{ingred.name_of_ingredient}}</li>
-						{% endfor %}
-					</ul>
-					{% endif %} 
-				{% endwith %} 
-			{% endfor %}
+			<div class="recipe-in-list">
+				{% for item in RecipeIndex %}
+					{% with itemid=item.title|cut:" " %}
+					{% if not item.subrecipe_only %}
+						<h3 class="recipe-name">{{item}}</h3>
+						{% if item.recipe_in_recipe.all|length > 0 %}
+						<div class="card subrecipes">
+							{% for subrecipe in item.recipe_in_recipe.all %}
+							 <div class="card-header">
+							 	<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#{{ itemid }}subrecipeCollapse-{{ forloop.counter }}" aria-expanded="false" aria-controls="subrecipeCollapse-{{ forloop.counter }}">
+							 	{{subrecipe.recipe_in_recipe_page}}
+							 	</button>
+							 </div>
+							 <div class="card-body collapse show" id="{{itemid}}subrecipeCollapse-{{ forloop.counter }}">
+								 {% for subIngredient in subrecipe.recipe_in_recipe_page.ingredient_items.all %}
+								  <p>{{ subIngredient.amount }} {{ subIngredient.name_of_ingredient }}</p>
+								 {% endfor %}
+							 </div>
+							{% endfor %}
+						</div>
+						{% endif %}
+						<ul>
+							{% for ingred in item.ingredient_items.all %}
+							 <li>{{ingred.amount}} {{ingred.name_of_ingredient}}</li>
+							{% endfor %}
+						</ul>
+						{% endif %} 
+					{% endwith %} 
+				{% endfor %}
+			</div>
 		</div>
 		<div class="col-md-3 featured-recipes">
 			{% if RecipeIndex.all|length > 0 %}

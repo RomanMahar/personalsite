@@ -1,84 +1,8 @@
-body {
-  background-color: #FFF0EE;
-  background-color: white;
+.recipe-name {
+  font-family: "Playfair Display";
 }
-.body-content {
-  text-align: right;
-}
-.top-menu-bar {
-  padding-right: 30px;
-  padding-left: 30px;
-  background-color: white;
-}
-.top-menu-bar .top-menu {
-  display: inline-block;
-}
-.top-menu-bar .nav-section {
-  float: right;
-}
-.top-menu-bar .logo {
-  font-family: "Fira Sans";
-}
-.top-menu-bar .logo span {
-  color: #fff000;
-  font-size: 22px;
-}
-.top-menu-bar ul.nav-ul {
-  float: right;
-  margin-top: 14px;
-  list-style: none;
-  padding: 0;
-  font-family: "Cormorant Garamond";
-  font-family: "Fira Sans";
-  font-weight: 100;
-}
-.top-menu-bar ul.nav-ul li a {
-  margin: 0 12px;
-  color: white;
-  color: #212135;
-}
-.top-menu-bar ul.nav-ul li a:hover {
-  text-decoration: none;
-  color: #212135;
-  background-color: #fff000;
-}
-.homepage-section-img {
-  width: 100%;
-}
-@media (min-width: 992px) {
-  .homepage-section-img {
-    padding-top: 60px;
-  }
-}
-@media (max-width: 991px) {
-  .hide-sm {
-    display: none;
-  }
-}
-@media (min-width: 992px) {
-  .hide-md {
-    display: none;
-  }
-}
-.homepage-section {
-  background-color: white;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-left: 36px;
-  padding-right: 36px;
-}
-.homepage-section h2.section-title {
-  letter-spacing: 0.1rem;
-  font-family: "Roboto";
-  font-weight: 800;
-  font-size: 40px;
-}
-.homepage-section .section-body {
-  font-family: 'Cormorant Garamond';
-  font-weight: 400;
-}
-.index-page-content {
-  margin-top: 60px;
+.recipe-in-list {
+  font-family: "Cormorant Garamond", "Garamond", "Georgia", "Serif";
 }
 .featured-recipes-heading {
   font-size: 24px;
@@ -180,4 +104,86 @@ body {
 }
 .featured-recipe-ingredients li .ingredient-amount {
   font-weight: bold;
+}
+body {
+  background-color: #FFF0EE;
+  background-color: white;
+}
+.body-content {
+  text-align: right;
+}
+.top-menu-bar {
+  padding-right: 30px;
+  padding-left: 30px;
+  background-color: white;
+}
+.top-menu-bar .top-menu {
+  display: inline-block;
+}
+.top-menu-bar .nav-section {
+  float: right;
+}
+.top-menu-bar .logo {
+  font-family: "Fira Sans";
+}
+.top-menu-bar .logo span {
+  color: #fff000;
+  font-size: 22px;
+}
+.top-menu-bar ul.nav-ul {
+  float: right;
+  margin-top: 14px;
+  list-style: none;
+  padding: 0;
+  font-family: "Cormorant Garamond";
+  font-family: "Fira Sans";
+  font-weight: 100;
+}
+.top-menu-bar ul.nav-ul li a {
+  margin: 0 12px;
+  color: white;
+  color: #212135;
+}
+.top-menu-bar ul.nav-ul li a:hover {
+  text-decoration: none;
+  color: #212135;
+  background-color: #fff000;
+}
+.homepage-section-img {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .homepage-section-img {
+    padding-top: 60px;
+  }
+}
+@media (max-width: 991px) {
+  .hide-sm {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .hide-md {
+    display: none;
+  }
+}
+.homepage-section {
+  background-color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 36px;
+  padding-right: 36px;
+}
+.homepage-section h2.section-title {
+  letter-spacing: 0.1rem;
+  font-family: "Roboto";
+  font-weight: 800;
+  font-size: 40px;
+}
+.homepage-section .section-body {
+  font-family: 'Cormorant Garamond';
+  font-weight: 400;
+}
+.index-page-content {
+  margin-top: 60px;
 }
