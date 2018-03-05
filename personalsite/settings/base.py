@@ -24,6 +24,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
+    'base',
     'home',
     'search',
     'navigation',
@@ -58,6 +59,8 @@ INSTALLED_APPS = [
 
     'condensedinlinepanel',
 ]
+
+WAGTAILIMAGES_IMAGE_MODEL = 'base.CustomImage'
 
 MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',

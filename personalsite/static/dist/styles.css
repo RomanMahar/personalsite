@@ -109,13 +109,142 @@ body {
   background-color: #FFF0EE;
   background-color: white;
 }
+#orca {
+  transform-origin: 50% 50%;
+}
+#orca:hover {
+  animation: rock 1s infinite;
+}
+.logo {
+  z-index: 2;
+  padding-top: 8px;
+  background-color: #FFF0EE;
+  background-color: transparent;
+  display: inline;
+}
+.logo div {
+  display: inline;
+}
+.logo a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.logo a:hover {
+  text-decoration: none;
+}
+.logo ul {
+  padding: 0;
+}
+.logo svg {
+  width: 80px;
+}
+.logo svg path {
+  fill: black !important;
+}
+.logo-holder {
+  position: relative;
+  display: inline;
+}
+.stacked-nav {
+  position: absolute;
+}
+.stacked-nav li {
+  display: block;
+  clear: both;
+}
+@keyframes rock {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(12deg);
+  }
+}
+main.hero {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 720px;
+}
+.logo {
+  font-family: "Roboto";
+  text-transform: lowercase;
+  font-size: 18px;
+  white-space: nowrap;
+}
 .body-content {
   text-align: right;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#pythonListItem span {
+  animation: blink 1s infinite;
+  margin-right: -15px;
+}
+.hero-body-content {
+  font-family: "Roboto";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  padding-left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: lowercase;
+  right: 30px;
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+.hero-body-content ul {
+  list-style: none;
+  font-weight: 300;
+  margin-right: 14px;
+  font-size: 28px;
+  float: right;
+}
+.hero-body-content ul li {
+  display: block;
+  float: right;
+  clear: both;
+}
+h1 {
+  font-size: 96px;
+  color: #223;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+h1 span.first-name {
+  color: #334;
+}
+h1 span.last-name {
+  color: #d34;
+}
+#svg-bg path {
+  transition: all 4s linear;
+  opacity: 0.2;
+}
+#svg-bg path:hover {
+  transition: all 0s linear;
+  opacity: 1;
 }
 .top-menu-bar {
   padding-right: 30px;
   padding-left: 30px;
   background-color: white;
+  background-color: transparent;
 }
 .top-menu-bar .top-menu {
   display: inline-block;

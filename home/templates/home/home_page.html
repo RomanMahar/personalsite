@@ -4,34 +4,41 @@
 
 {% block body_class %}template-homepage{% endblock %}
 
-{% block content %}
+{% block home_content %}
 
 <main class="hero">
-
-    {% if self.body %}
-    <div class="container">    	
-	    <div class="row">
-	        <div class="col-lg-6">
-	        	{{ page.body|richtext }}
-	        </div>
-	        <div class="col-lg-6">
-	        	
-	        </div>
-	    </div>
+	<div id="svg-bg">
+		{% include 'includes/pattern.svg' %}
+	</div>
+	<div class="container">
+	    <div class="hero-body-content">    	
+		    <div class="row">
+		        <div id="site-info-card" class="col-lg-12">
+		        	<h1 class="homepage-heading">{{page.heading}}</h1>
+		        	{% comment %}
+		        	<h1>
+		        		<span class="first-name">omar</span><span class="last-name">rahman</span><span class="tld">.ca</span>
+		        	</h1>
+		        	{% endcomment %}
+        		<div class="subheading">
+	        		<ul>
+		        		<li>JavaScript(React, Angular)</li>
+		        		<li id="djangoListItem">Django</li>
+		        		<li id="pythonListItem">Python<span>▍</span></li>
+	        		</ul>
+	        	</div>
+	        	</div>
+		    </div>
+		</div>
     </div>
-    {% endif %}
 		​
 </main> 
 
-<div>
-	
-		{% recipes_tag %}
-	
-</div>
+<div class="container"> 
 
-<div class="homepage-sections container">
+<div id="home-subpages" class="homepage-sections container">
 	{% for subpage in homePageSection %}
-	<section class="homepage-section {{ subpage.sectionClassName }} {{ subpage.orientation }}-orientation">
+	<section id="section-{{forloop.counter}}" class="homepage-section {{ subpage.sectionClassName }} {{ subpage.orientation }}-orientation">
 			{# template section for right-oriented homepage sections #}
 			{% if subpage.orientation == "right" %}
 			<div class="row">
@@ -40,14 +47,16 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-7">
+				<div class="col-sm-12 col-md-12 col-lg-7">
 					{% if subpage.main_image %}
 						{% image subpage.main_image width-1000 as sectionPic %}
-						<img src="{{sectionPic.url}}" alt="" class="homepage-section-img">
+						{{sectionPic.url}}
+						{{subpage.main_image.caption}}
+						<img src="{{sectionPic.url}}" alt="{{subpage.main_image.alt_text}}" class="homepage-section-img">
 					{% endif %}
 					
 				</div>
-				<div class="col-sm-12 col-md-6 col-lg-5">
+				<div class="col-sm-12 col-md-12 col-lg-5">
 					<h2 class="section-title hide-sm">{{ subpage.title }}</h2>
 					<div class="section-body">
 						{{ subpage.body|richtext }}
@@ -59,18 +68,22 @@
 			{% if subpage.orientation == "left" %}
 			<div class="row">
 				<div class="col-sm-12">
-					<h2 class="section-title">{{ subpage.title }}</h2>
+					<h2 class="section-title text-center hide-md">{{ subpage.title }}</h2>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-5">
+				<div class="col-sm-12 col-md-12 col-lg-5">
+					<h2 class="section-title hide-sm">{{ subpage.title }}</h2>
 					<div class="section-body">
 						{{ subpage.body|richtext }}
 					</div>
 				</div>
-				<div class="col-sm-12 col-md-6 col-lg-7">
+				<div class="col-sm-12 col-md-12 col-lg-7">
 					{% if subpage.main_image %}
-						{% image subpage.main_image width-600 class="hero-image" %}
+						{% image subpage.main_image width-1000 as sectionPic %}
+						{{sectionPic.url}}
+						{{subpage.main_image.caption}}
+						<img src="{{sectionPic.url}}" alt="{{subpage.main_image.alt_text}}" class="homepage-section-img">
 					{% endif %}					
 				</div>
 			</div>
@@ -79,4 +92,13 @@
 	{% endfor %}
 </div>
 
+</div>
+{% verbatim %}
+<script type="text/javascript">
+	var liDjango = document.getElementById('djangoListItem');
+	var pythonLang = "a";
+	console.log(siteCard.indexOf('a'));
+	debugger;
+</script>
+{% endverbatim %}
 {% endblock %}
