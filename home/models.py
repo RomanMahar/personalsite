@@ -17,7 +17,7 @@ from wagtail.wagtailcore.blocks import RawHTMLBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 
 from modelcluster.fields import ParentalKey
-from base.models import CustomImage
+from base.models import CustomImage, RelatedLink, LinkFields
 
 class HomePage(Page):
 	main_image = models.ForeignKey(
@@ -34,61 +34,22 @@ class HomePage(Page):
 		max_length=255,
 		default="Web Developer, Designer, Illustrator")
 	body = RichTextField(blank=True)
+	customMarkup = StreamField([
+			('markup', RawHTMLBlock()),
+	],
+	blank=True,
+	null=True)
 	content_panels = Page.content_panels + [
 		FieldPanel('body', classname="hero-content"),
 		ImageChooserPanel('main_image'),
 		FieldPanel('heading'),
 		FieldPanel('intro'),
+		StreamFieldPanel('customMarkup')
 	]
 	def get_context(self, request):
 		context = super(HomePage, self).get_context(request)
 		context['homePageSection'] = HomePageSection.objects.all()
 		return context
-
-
-
-class LinkFields(models.Model):
-	 link_external = models.URLField("External link", blank=True)
-	 link_page = models.ForeignKey(
-		 'wagtailcore.Page',
-		 null=True,
-		 blank=True,
-		 related_name='+',
-		 on_delete=models.SET_NULL,
-	 )
-	 @property
-	 def link(self):
-		 if self.link_page:
-			 return self.link_page.url
-		 else:
-			 return self.link_external
-
-	 panels = [
-		 PageChooserPanel('link_page'),
-	 ]
-
-	 class Meta:
-		 abstract = True
-
-class RelatedLink(LinkFields):
-	 title = models.CharField(max_length=255, help_text="Link title")
-	 main_image = models.ForeignKey(
-		 'wagtailimages.Image',
-		 null=True,
-		 blank=True,
-		 on_delete=models.SET_NULL,
-		 related_name='+'
-	 )
-	 description = RichTextField(blank=True)
-	 panels = [
-		 FieldPanel('title'),
-		 ImageChooserPanel('main_image'),
-		 MultiFieldPanel(LinkFields.panels, "Link"),
-		 FieldPanel('description'),
-	 ]
-
-	 class Meta:
-		 abstract = True
 
 class HomeProductRelatedLink(Orderable, RelatedLink):
 	 page = ParentalKey('home.HomePageSection', related_name='related_links')
@@ -131,7 +92,7 @@ class HomePageSection(Page):
 	)
 	orientation = models.CharField(
 		max_length=50, 
-		choices= (('left', 'LEFT'), ('right', 'RIGHT'), ('centre', 'CENTRE'), ),
+		choices= (('left', 'LEFT'), ('right', 'RIGHT'), ('centre', 'CENTRE'), ('freeform', 'FREEFORM') ),
 		default='left'
 	)
 	link_page = models.ForeignKey(

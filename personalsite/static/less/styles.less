@@ -1,5 +1,6 @@
 @import "variables/_variables.less";
 @import "recipes/recipes.less";
+@import "homepage/homepage.less";
 
 body {
 	background-color: #FFF0EE;
@@ -7,36 +8,27 @@ body {
 	// background: #FF00EE;
 	// background: #0FF0EE;
 	// background: red;
-}
-#orca {
-	transform-origin: 50% 50%;
-	&:hover {
-		animation: rock 1s infinite;
-	}
+	font-family: "Roboto";
 }
 .logo {
 	z-index: 2;
 	padding-top: 8px;
 	background-color: #FFF0EE;
 	background-color: transparent;
-	display: inline;
+	display: inline-block;
 	div {
 		display: inline;
-	}
-	a {
-		text-decoration: none;
-		text-transform: uppercase;
-		&:hover {
-			text-decoration: none;
-		}
-	}
-	ul {
-		padding: 0;
 	}
 	svg {
 		width: 80px;
 		path {
+			transition: all 0.1s linear;
 			fill: black !important;
+		}
+	}
+	&:hover svg {
+		path {
+		fill: rgb(150,0,0) !important;
 		}
 	}
 }
@@ -61,7 +53,7 @@ main.hero {
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-	height: 720px;
+	height: 480px;
 }
 .logo {
 	font-family: "Roboto";
@@ -83,83 +75,15 @@ main.hero {
 	margin-right: -15px;
 }
 
-.hero-body-content {
-	font-family: "Roboto";
-	position: absolute;
-	background: rgba(255,255,255,0.7); 
-	padding-left: 20px;
-	// margin-left: 20px;
-	// float: right;
-	// box-shadow: 0 0 0 0.25px #556;
-	// box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.2);
-	top: 50%;
-	transform: translateY(-50%);
-	text-transform: lowercase;
-	right: 30px;
-	text-align: right;
-	letter-spacing: 0.1em;
-	ul {
-		list-style: none;
-		font-weight: 300;
-		margin-right: 14px;
-		font-size: 28px;
-		float: right;
-		li {
-			display: block;
-			float: right;
-			clear: both;
-		}
-
-	}
-	
-}
-h1 {
-	font-size: 96px;
-	color: #223;
-	font-weight: 700;
-	letter-spacing: 0.1em;
-	span.first-name {
-	color: #334;
-	}
-	span.last-name {
-		color: #d34;
-	}
-}
-#svg-bg path {
-	transition: all 4s linear;
-	opacity: 0.2;
-	&:hover {
-		transition: all 0s linear;
-		opacity: 1;
-	}
-}
 // path:nth-of-type(1n) {
 // 	opacity: 1;
 // }
 
 .top-menu-bar {
-	// background-color: white;
-	// border-bottom: 1px solid #333;
 	padding-right: 30px;
 	padding-left: 30px;
-	// width: 200px;
 	background-color: white;
-	background-color: transparent;
-	// &:after {
-	// 	content: '';
-	// 	width: 400px; 
-	// 	height: 400px;
-	// 	z-index: -1;
-	// 	background-color: rgba(255,240,238,1);
-	// 	background-color: rgba(255,255,255,1);
-	// 	background-color: rgba(33,33,53,0.87);
-	// 	position: absolute;
-	// 	left: -200px;
-	// 	top: -200px;
-	// 	transform: rotate(45deg);
-	// 	// box-shadow: 3px 0px 1px rgba(0,0,0,0.2);
-	// 	// border: 2px dotted rgba(255,255,255,0.5);
-	// }
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
 	.top-menu {
 		display: inline-block;
 	}
@@ -175,62 +99,24 @@ h1 {
 	}
 	ul.nav-ul {
 		float: right;
-		margin-top: 14px;
+		font-size: 20px;
+		margin-top: 32px;
 		list-style: none;
 		padding: 0;
-		font-family: "Cormorant Garamond";
-		font-family: "Fira Sans";
-		font-weight: 100;
-		// text-align: right;
+		font-family: "Roboto";
 		li a {
 			margin: 0 12px;
 			color: white;
-			color: @slate;
+			color: #223;
 			&:hover {
 				text-decoration: none;
-				color: @slate;
-				background-color: @yellow;
+				background-color: #e1deee;
+				box-shadow: 5px 0 0 #e1deee, -5px 0 0 #e1deee;
 			}
 		}
 	}
 }
 
-.homepage-section-img {
-	width: 100%;
-	@media (min-width : 992px) { 
-		padding-top: 60px;
-	}
-}
-
-.hide-sm {
-	@media (max-width : 991px) { 
-		display: none;
-	}
-}
-.hide-md {
-	@media (min-width : 992px) { 
-		display: none;
-	}
-}
-
-.homepage-section {
-	background-color: white;
-	padding-top: 50px;	
-	padding-bottom: 50px;
-	padding-left: 36px;
-	padding-right: 36px;
-	h2.section-title {
-		// text-transform: uppercase;
-		letter-spacing: 0.1rem;
-		font-family: "Roboto";
-		font-weight: 800;
-		font-size: 40px;
-	}
-	.section-body {
-		font-family: 'Cormorant Garamond';
-		font-weight: 400;
-	}
-}
 .index-page-content {
 	margin-top: 60px;
 }

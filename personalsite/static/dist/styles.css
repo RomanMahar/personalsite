@@ -105,107 +105,16 @@
 .featured-recipe-ingredients li .ingredient-amount {
   font-weight: bold;
 }
-body {
-  background-color: #FFF0EE;
-  background-color: white;
-}
-#orca {
-  transform-origin: 50% 50%;
-}
-#orca:hover {
-  animation: rock 1s infinite;
-}
-.logo {
-  z-index: 2;
-  padding-top: 8px;
-  background-color: #FFF0EE;
-  background-color: transparent;
-  display: inline;
-}
-.logo div {
-  display: inline;
-}
-.logo a {
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.logo a:hover {
-  text-decoration: none;
-}
-.logo ul {
-  padding: 0;
-}
-.logo svg {
-  width: 80px;
-}
-.logo svg path {
-  fill: black !important;
-}
-.logo-holder {
-  position: relative;
-  display: inline;
-}
-.stacked-nav {
-  position: absolute;
-}
-.stacked-nav li {
-  display: block;
-  clear: both;
-}
-@keyframes rock {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(12deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(12deg);
-  }
-}
-main.hero {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 720px;
-}
-.logo {
-  font-family: "Roboto";
-  text-transform: lowercase;
-  font-size: 18px;
-  white-space: nowrap;
-}
-.body-content {
-  text-align: right;
-}
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-#pythonListItem span {
-  animation: blink 1s infinite;
-  margin-right: -15px;
-}
 .hero-body-content {
   font-family: "Roboto";
   position: absolute;
+  background: rgba(255, 235, 255, 0.8);
   background: rgba(255, 255, 255, 0.7);
-  padding-left: 20px;
+  padding: 8px 12px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateX(-50%);
   text-transform: lowercase;
-  right: 30px;
-  text-align: right;
+  left: 50%;
   letter-spacing: 0.1em;
 }
 .hero-body-content ul {
@@ -220,63 +129,54 @@ main.hero {
   float: right;
   clear: both;
 }
-h1 {
-  font-size: 96px;
+.hero-body-content h1 {
+  font-size: 72px;
   color: #223;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
-h1 span.first-name {
+.hero-body-content h1 span.first-name {
   color: #334;
 }
-h1 span.last-name {
+.hero-body-content h1 span.last-name {
   color: #d34;
+}
+.hero-body-content p {
+  font-size: 18px;
+  margin-top: -8px;
+  text-align: right;
+  padding-right: 10px;
 }
 #svg-bg path {
   transition: all 4s linear;
-  opacity: 0.2;
+  opacity: 0.5;
 }
 #svg-bg path:hover {
   transition: all 0s linear;
   opacity: 1;
 }
-.top-menu-bar {
-  padding-right: 30px;
-  padding-left: 30px;
-  background-color: white;
-  background-color: transparent;
+.photo-holder {
+  position: relative;
+  color: #212135;
+  height: 100%;
 }
-.top-menu-bar .top-menu {
-  display: inline-block;
-}
-.top-menu-bar .nav-section {
-  float: right;
-}
-.top-menu-bar .logo {
-  font-family: "Fira Sans";
-}
-.top-menu-bar .logo span {
-  color: #fff000;
-  font-size: 22px;
-}
-.top-menu-bar ul.nav-ul {
-  float: right;
-  margin-top: 14px;
-  list-style: none;
-  padding: 0;
+div.photo-credit {
   font-family: "Cormorant Garamond";
-  font-family: "Fira Sans";
-  font-weight: 100;
+  background: rgba(255, 239, 230, 0.7);
+  position: absolute;
+  bottom: 0px;
+  text-align: right;
 }
-.top-menu-bar ul.nav-ul li a {
-  margin: 0 12px;
-  color: white;
+div.photo-credit a,
+div.photo-credit span {
+  padding: 2px 8px;
+  font-weight: 800;
   color: #212135;
 }
-.top-menu-bar ul.nav-ul li a:hover {
+div.photo-credit a:hover {
+  color: #ffefe6;
+  background-color: #212135;
   text-decoration: none;
-  color: #212135;
-  background-color: #fff000;
 }
 .homepage-section-img {
   width: 100%;
@@ -312,6 +212,123 @@ h1 span.last-name {
 .homepage-section .section-body {
   font-family: 'Cormorant Garamond';
   font-weight: 400;
+}
+body {
+  background-color: #FFF0EE;
+  background-color: white;
+  font-family: "Roboto";
+}
+.logo {
+  z-index: 2;
+  padding-top: 8px;
+  background-color: #FFF0EE;
+  background-color: transparent;
+  display: inline-block;
+}
+.logo div {
+  display: inline;
+}
+.logo svg {
+  width: 80px;
+}
+.logo svg path {
+  transition: all 0.1s linear;
+  fill: black !important;
+}
+.logo:hover svg path {
+  fill: #960000 !important;
+}
+.logo-holder {
+  position: relative;
+  display: inline;
+}
+.stacked-nav {
+  position: absolute;
+}
+.stacked-nav li {
+  display: block;
+  clear: both;
+}
+@keyframes rock {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(12deg);
+  }
+}
+main.hero {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 480px;
+}
+.logo {
+  font-family: "Roboto";
+  text-transform: lowercase;
+  font-size: 18px;
+  white-space: nowrap;
+}
+.body-content {
+  text-align: right;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#pythonListItem span {
+  animation: blink 1s infinite;
+  margin-right: -15px;
+}
+.top-menu-bar {
+  padding-right: 30px;
+  padding-left: 30px;
+  background-color: white;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+.top-menu-bar .top-menu {
+  display: inline-block;
+}
+.top-menu-bar .nav-section {
+  float: right;
+}
+.top-menu-bar .logo {
+  font-family: "Fira Sans";
+}
+.top-menu-bar .logo span {
+  color: #fff000;
+  font-size: 22px;
+}
+.top-menu-bar ul.nav-ul {
+  float: right;
+  font-size: 20px;
+  margin-top: 32px;
+  list-style: none;
+  padding: 0;
+  font-family: "Roboto";
+}
+.top-menu-bar ul.nav-ul li a {
+  margin: 0 12px;
+  color: white;
+  color: #223;
+}
+.top-menu-bar ul.nav-ul li a:hover {
+  text-decoration: none;
+  background-color: #e1deee;
+  box-shadow: 5px 0 0 #e1deee, -5px 0 0 #e1deee;
 }
 .index-page-content {
   margin-top: 60px;
