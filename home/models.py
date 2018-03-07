@@ -21,7 +21,7 @@ from base.models import CustomImage, RelatedLink, LinkFields
 
 class HomePage(Page):
 	main_image = models.ForeignKey(
-		'wagtailimages.Image',
+		'base.CustomImage',
 		null=True,
 		blank=True,
 		on_delete=models.SET_NULL,

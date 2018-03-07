@@ -7,9 +7,25 @@
 {% block home_content %}
 
 <main class="hero">
-	<div id="svg-bg">
+	<div id="svg-bg" style="background: linear-gradient(to bottom, #2473ab 0%,#1e528e 70%,#5b7983 100%);">
+		{% comment %}
 		{% include 'includes/pattern-warm.svg' %}
+		{% if self.main_image %}
+			{% image self.main_image fill-1920x1080-c20 as mainPic %}
+			<img src="{{mainPic.url}}" alt="{{self.main_image.alt_text}}" class="homepage-hero-img">
+			{% if self.main_image.display_credit %}
+			<div class="photo-credit">
+					{% if self.main_image.photo_credit_link %}
+					<a href="{{ self.main_image.photo_credit_link }}">Photo by: {{self.main_image.photographer}}</a>
+					{% else %}
+					<span>Photo by: {{self.main_image.photographer}}</span>
+					{% endif %}
+			</div>
+			{% endif %}
+		{% endif %}
+		{% endcomment %}
 	</div>
+	{# <div class="color-overlay"></div> #}
 	
 	    <div class="hero-body-content">    	
 		    <div class="row">

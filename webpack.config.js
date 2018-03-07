@@ -13,7 +13,9 @@ const JsDir = Static + 'js/'
 
 module.exports = {	
   entry: {
-    bundle: JsDir + 'index.js',
+    bundle: JsDir + 'index.js'
+    // temporarily taken out of use
+    // app: JsDir + 'app.js',
   },
   output: {
     filename: '[name].js',
@@ -30,7 +32,24 @@ module.exports = {
               }],
 
           })
-      }]
+        },
+        {
+          // not in use yet
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader"
+          }
+        },
+        {
+          // not in use yet
+          test: /\.html$/,
+          use: [
+            {
+              loader: "html-loader"
+            }
+          ]
+        }]
   },
   plugins: [
       extractLess,

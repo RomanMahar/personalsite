@@ -1,15 +1,21 @@
-
+main.hero {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	max-height: 720px;
+}
 .hero-body-content {
+	font-family: @serif_stack;
 	font-family: "Roboto";
-	position: absolute;
-	background: rgba(255,235,255,0.8); 
-	background: rgba(255,255,255,0.7); 
-	// box-shadow: 0.2px 0 0 0.2px rgba(5, 5, 5, 0.7);
+	position: absolute; 
+	background-color: white;
+	color: @slate;
+	z-index: 2;
 	padding: 8px 12px;
 	top: 50%;
-	transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%);
 	text-transform: lowercase;
-	left: 50%;
+	right: 30px;
 	letter-spacing: 0.1em;
 	ul {
 		list-style: none;
@@ -26,8 +32,7 @@
 	}
 	h1 {
 		font-size: 72px;
-		color: #223;
-		font-weight: 700;
+		font-weight: 400;
 		letter-spacing: 0.1em;
 		span.first-name {
 		color: #334;
@@ -46,9 +51,10 @@
 }
 
 #svg-bg {
+	height: 1080px;
 	path {
 		transition: all 4s linear;
-		opacity: 0.5;
+		opacity: 0.4;
 		&:hover {
 			transition: all 0s linear;
 			opacity: 1;
@@ -63,6 +69,7 @@
 }
 div.photo-credit {
 	font-family: "Cormorant Garamond";
+	z-index: 5;
 	background: rgba(255, 239, 230, 0.7);
 	position: absolute;
 	bottom: 0px;
@@ -78,7 +85,19 @@ div.photo-credit {
 		text-decoration: none;
 	}
 }
+div.color-overlay {
+	height: 100%;
+	width: 100%;
+	background-color: #001F3F;
+	background-color: rgba(50,50,95,0.1);
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+}
+.homepage-hero-img {
 
+}
 .homepage-section-img {
 	width: 100%;
 	@media (min-width : 992px) { 

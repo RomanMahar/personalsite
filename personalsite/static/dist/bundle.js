@@ -65,23 +65,24 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__less_styles_less__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__less_styles_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__less_styles_less__);
 
 
+var _lodash = __webpack_require__(1);
 
+var _lodash2 = _interopRequireDefault(_lodash);
+
+__webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function component() {
   var element = document.createElement('div');
 
   // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(['Haxlo', 'Spacepack'], ' ');
+  element.innerHTML = _lodash2.default.join(['Haxlo', 'Spacepack'], ' ');
 
   return element;
 }

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import {} from '../less/styles.less'
+import {} from '../less/styles.less';
 
 function component() {
   var element = document.createElement('div');
