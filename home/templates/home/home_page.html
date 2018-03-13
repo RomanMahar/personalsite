@@ -1,60 +1,55 @@
 {% extends "base.html" %}
 
-{% load wagtailimages_tags wagtailcore_tags recipe_tags %}
+{% load static wagtailimages_tags wagtailcore_tags recipe_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
+{% block hello %}
+<h1>Hello World!!!</h1>
+{{ block.super }}
+
+{% endblock %}
+
 {% block home_content %}
 
-<main class="hero">
-	<div id="svg-bg" style="background: linear-gradient(to bottom, #2473ab 0%,#1e528e 70%,#5b7983 100%);">
-		{% comment %}
+<main class="hero" id="section-0">
+	<div id="svg-bg" style="background: linear-gradient(to bottom, #5b79ff 0%,#1e528e 70%,#5b7983 100%);">
 		{% include 'includes/pattern-warm.svg' %}
-		{% if self.main_image %}
-			{% image self.main_image fill-1920x1080-c20 as mainPic %}
-			<img src="{{mainPic.url}}" alt="{{self.main_image.alt_text}}" class="homepage-hero-img">
-			{% if self.main_image.display_credit %}
-			<div class="photo-credit">
-					{% if self.main_image.photo_credit_link %}
-					<a href="{{ self.main_image.photo_credit_link }}">Photo by: {{self.main_image.photographer}}</a>
-					{% else %}
-					<span>Photo by: {{self.main_image.photographer}}</span>
-					{% endif %}
-			</div>
-			{% endif %}
-		{% endif %}
-		{% endcomment %}
+		
 	</div>
 	{# <div class="color-overlay"></div> #}
 	
-	    <div class="hero-body-content">    	
+	    <div class="hero-body-content">
+	    	{% comment %}
+			<div id="cn-tower">
+				{% include 'toronto-skyline.svg' %}
+			</div>
+	    	{% endcomment %}
+	    	
 		    <div class="row">
 		        <div id="site-info-card" class="col-lg-12">
 		        	<h1 class="homepage-heading">{{page.heading}}</h1>
-		        	{% comment %}
-		        	<h1>
-		        		<span class="first-name">omar</span><span class="last-name">rahman</span><span class="tld">.ca</span>
-		        	</h1>
-		        	{% endcomment %}
-        		<p class="page-intro">{{ page.intro }}</p>
-        			{% comment %}
-        		<div class="subheading">
-	        		<ul>
-		        		<li>JavaScript(React, Angular)</li>
-		        		<li id="djangoListItem">Django</li>
-		        		<li id="pythonListItem">Python<span>▍</span></li>
-	        		</ul>
-	        	</div>
-        			{% endcomment %}
+        			<p class="page-intro">{{ page.intro }}</p>
+        			<ul class="social-links">
+        				<li>
+        					<a href="https://github.com/RomanMahar" target="_blank">
+        						<span class="icon"><i class="fab fa-linkedin-in"></i></span>
+        						<span class="text">LinkedIn</span>
+        					</a>
+        				</li>
+        				<li>
+        					<a href="https://www.linkedin.com/in/omar-rahman-461b4523/"  target="_blank">
+        						<span class="icon"><i class="fab fa-github"></i></span>
+        						<span class="text">GitHub</span>
+        					</a>
+        				</li>
+        			</ul>
 	        	</div>
 		    </div>
 		</div>
-    
-		​
 </main> 
-
+{# End of hero section and start of homePageSections #}
 <div class="container"> 
-
 <div id="home-subpages" class="homepage-sections container">
 	{% for subpage in homePageSection %}
 	<section id="section-{{forloop.counter}}" class="homepage-section {{ subpage.sectionClassName }} {{ subpage.orientation }}-orientation">
@@ -69,16 +64,7 @@
 				<div class="col-sm-12 col-md-12 col-lg-7 photo-holder">
 					{% if subpage.main_image %}
 						{% image subpage.main_image width-1000 as sectionPic %}
-						<img src="{{sectionPic.url}}" alt="{{subpage.main_image.alt_text}}" class="homepage-section-img">
-						{% if subpage.main_image.display_credit %}
-						<div class="photo-credit">
-								{% if subpage.main_image.photo_credit_link %}
-								<a href="{{ subpage.main_image.photo_credit_link }}">Photo by: {{subpage.main_image.photographer}}</a>
-								{% else %}
-								<span>Photo by: {{subpage.main_image.photographer}}</span>
-								{% endif %}
-						</div>
-						{% endif %}
+							{% include 'includes/foobar.html' %}
 					{% endif %}
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-5">
@@ -88,7 +74,7 @@
 					</div>
 				</div>
 			</div>
-			{% endif%}
+			{% endif %}
 			{# template section for right-oriented homepage sections #}	
 			{% if subpage.orientation == "left" %}
 			<div class="row">
@@ -106,32 +92,18 @@
 				<div class="col-sm-12 col-md-12 col-lg-7 photo-holder">
 					{% if subpage.main_image %}
 						{% image subpage.main_image width-1000 as sectionPic %}
-						<img src="{{sectionPic.url}}" alt="{{subpage.main_image.alt_text}}" class="homepage-section-img">
-						{% if subpage.main_image.display_credit %}
-						<div class="photo-credit">
-								{% if subpage.main_image.photo_credit_link %}
-								<a href="{{ subpage.main_image.photo_credit_link }}">Photo by: {{subpage.main_image.photographer}}</a>
-								{% else %}
-								<span>Photo by: {{subpage.main_image.photographer}}</span>
-								{% endif %}
-						</div>
-						{% endif %}
+							{% include 'includes/foobar.html' %}
 					{% endif %}				
 				</div>
 			</div>
-			{% endif%}	
+			{% endif %}	
 	</section>
 	{% endfor %}
 </div>
 
 </div>
-{% verbatim %}
-<script type="text/javascript">
-	var djangoLi = document.getElementById('djangoListItem');
-	var djangoText = document.getElementById('djangoListItem').innerHTML;
-	djangoLi.innerHTML = "{% " + djangoText + " %}";
-	console.log(siteCard.indexOf('a'));
-	debugger;
-</script>
-{% endverbatim %}
+
+{% block extra_js %}
+<script src="{% static 'js/site_pages/home_page.js' %}"></script>
+{% endblock %}
 {% endblock %}

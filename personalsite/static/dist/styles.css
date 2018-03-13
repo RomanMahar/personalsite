@@ -109,33 +109,61 @@ main.hero {
   overflow: hidden;
   position: relative;
   width: 100%;
+  margin-top: 80px;
   max-height: 720px;
 }
 .hero-body-content {
   font-family: "Cormorant Garamond", "Garamond", "Georgia", "Serif";
   font-family: "Roboto";
   position: absolute;
-  background-color: white;
-  color: #212135;
+  color: #454566;
   z-index: 2;
-  padding: 8px 12px;
   top: 50%;
   transform: translateY(-50%);
   text-transform: lowercase;
-  right: 30px;
+  right: 60px;
+  margin-left: 60px;
   letter-spacing: 0.1em;
 }
-.hero-body-content ul {
+.hero-body-content #site-info-card {
+  background-color: white;
+  padding: 8px 12px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.hero-body-content ul.social-links {
   list-style: none;
-  font-weight: 300;
-  margin-right: 14px;
-  font-size: 28px;
+}
+.hero-body-content ul.social-links li {
+  text-align: center;
   float: right;
 }
-.hero-body-content ul li {
+.hero-body-content ul.social-links li span {
+  transition: all 0.1s linear;
+}
+.hero-body-content ul.social-links li a {
+  color: #454566;
+  font-size: 32px;
+}
+.hero-body-content ul.social-links li a:hover {
+  text-decoration: none;
+}
+.hero-body-content ul.social-links li a:hover span {
+  background-color: #D0C6DB;
+}
+.hero-body-content ul.social-links li a:hover span.text {
+  border-top: #D0C6DB 1px solid;
+}
+.hero-body-content ul.social-links li span.icon {
+  border-radius: 6px 6px 0 0;
+  width: 70px;
   display: block;
-  float: right;
-  clear: both;
+}
+.hero-body-content ul.social-links li span.text {
+  display: list-item;
+  border-top: white 1px solid;
+  font-size: 12px;
+  padding-right: 0;
+  border-radius: 0 0 6px 6px;
 }
 .hero-body-content h1 {
   font-size: 72px;
@@ -154,8 +182,30 @@ main.hero {
   text-align: right;
   padding-right: 10px;
 }
-#svg-bg {
-  height: 1080px;
+.hero-body-content #cn-tower {
+  position: absolute;
+  top: -56px;
+  width: 30%;
+}
+.hero-body-content #to-skyline {
+  position: absolute;
+  width: 620px;
+  left: -100%;
+  bottom: -100px;
+}
+.red-light-animation {
+  animation: lighting 2.4s infinite;
+}
+@keyframes lighting {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 #svg-bg path {
   transition: all 4s linear;
@@ -199,30 +249,30 @@ div.color-overlay {
   top: 0;
   left: 0;
 }
-.homepage-section-img {
-  width: 100%;
-}
-@media (min-width: 992px) {
-  .homepage-section-img {
-    padding-top: 60px;
-  }
-}
-@media (max-width: 991px) {
-  .hide-sm {
-    display: none;
-  }
-}
-@media (min-width: 992px) {
-  .hide-md {
-    display: none;
-  }
-}
 .homepage-section {
   background-color: white;
   padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 36px;
   padding-right: 36px;
+}
+.homepage-section .homepage-section-img {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .homepage-section .homepage-section-img {
+    padding-top: 59px;
+  }
+}
+@media (max-width: 991px) {
+  .homepage-section .hide-sm {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .homepage-section .hide-md {
+    display: none;
+  }
 }
 .homepage-section h2.section-title {
   letter-spacing: 0.1rem;
@@ -231,8 +281,8 @@ div.color-overlay {
   font-size: 40px;
 }
 .homepage-section .section-body {
-  font-family: 'Cormorant Garamond';
-  font-weight: 400;
+  font-family: "Cormorant Garamond", "Garamond", "Georgia", "Serif";
+  font-weight: 500;
 }
 body {
   background-color: #FFF0EE;
@@ -250,13 +300,13 @@ body {
   display: inline;
 }
 .logo svg {
-  width: 80px;
+  width: 60px;
 }
 .logo svg path {
   transition: all 0.1s linear;
   fill: black !important;
 }
-.logo:hover svg path {
+.logo:hover path {
   fill: #960000 !important;
 }
 .logo-holder {
@@ -326,10 +376,15 @@ body {
   margin-right: -15px;
 }
 .top-menu-bar {
+  min-height: 80px;
   padding-right: 30px;
   padding-left: 30px;
   background-color: white;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 .top-menu-bar .top-menu {
   display: inline-block;

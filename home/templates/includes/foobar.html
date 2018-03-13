@@ -1,0 +1,10 @@
+<img src="{{sectionPic.url}}" alt="{{subpage.main_image.alt_text}}" class="homepage-section-img">
+{% if subpage.main_image.display_credit %}
+<div class="photo-credit">
+		{% if subpage.main_image.photo_credit_link %}
+		<a href="{{ subpage.main_image.photo_credit_link }}">Photo by: {{subpage.main_image.photographer}}</a>
+		{% else %}
+		<span>Photo by: {{subpage.main_image.photographer}}</span>
+		{% endif %}
+</div>
+{% endif %}

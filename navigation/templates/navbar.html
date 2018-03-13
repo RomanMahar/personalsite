@@ -4,36 +4,14 @@
 <header class="top-menu-bar">
 	<div class="logo-holder">
 		<div class="logo">
+			{% if request.get_full_path == "/" %}
+			<a href="#section-0">
+			{% else %}
 			<a href="/">
-				<span class="sr-only">Homepage link. SVG of killer whale over text reading, 'or.ca'</span>
-				{% include 'omarvector.svg' %}
+			{% endif %}
+				<span class="sr-only">Homepage link. Logo of calligraphed 'O' over wax seal illustration</span>
+				{% include 'WaxSealLogo.svg' %}
 			</a>
-
-
-			{# <div>or.ca</div><img id="orca" src="{% static "static_images/killerwhaleorca.png" %}" width="60px" alt="My image"/> #}
-			
-			<nav class="stacked-nav">
-				{# Homenav start. renders only if on homepage, i.e. if path is '/' #}
-				<ul id="stacked-nav-items">
-				{% if request.get_full_path == "/" %}
-					{% for section in homepageitems %}
-						<li>
-							<a href="#section-{{ forloop.counter }}">{{ section.title }}</a>
-							{# <a href="#{{ section.title|cut:" " }}">{{ section.title }}</a> #}
-						</li>
-					{% endfor %}
-				{% endif %}
-						<li>
-							{% main_menu %}
-						</li>
-							
-						<li>
-							<a href="#contact-us">Contact me</a>
-						</li>
-				</ul>
-				{# End of Homenav #}
-			</nav>
-
 		</div>
 	</div>
 	<nav class="top-menu nav-section">
