@@ -146,12 +146,13 @@ main.hero {
 }
 .hero-body-content ul.social-links li a:hover {
   text-decoration: none;
+  color: white;
 }
 .hero-body-content ul.social-links li a:hover span {
-  background-color: #D0C6DB;
+  background-color: #4F0A72;
 }
 .hero-body-content ul.social-links li a:hover span.text {
-  border-top: #D0C6DB 1px solid;
+  border-top: #4F0A72 1px solid;
 }
 .hero-body-content ul.social-links li span.icon {
   border-radius: 6px 6px 0 0;
@@ -221,7 +222,7 @@ main.hero {
   height: 100%;
 }
 div.photo-credit {
-  font-family: "Cormorant Garamond";
+  font-family: "Cormorant Garamond", "Garamond", "Georgia", "Serif";
   z-index: 5;
   background: rgba(255, 239, 230, 0.7);
   position: absolute;
@@ -307,7 +308,7 @@ body {
   fill: black !important;
 }
 .logo:hover path {
-  fill: #960000 !important;
+  fill: #4F0A72 !important;
 }
 .logo-holder {
   position: relative;

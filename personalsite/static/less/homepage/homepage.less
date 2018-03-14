@@ -44,10 +44,11 @@ main.hero {
 				font-size: 32px;
 				&:hover {
 					text-decoration: none;
+					color: white;
 					span {
-						background-color: #D0C6DB;
+						background-color: @aubergine;
 						&.text {
-							border-top: #D0C6DB 1px solid;
+							border-top: @aubergine 1px solid;
 						}
 					}
 				}
@@ -134,7 +135,7 @@ main.hero {
 	height: 100%;
 }
 div.photo-credit {
-	font-family: "Cormorant Garamond";
+	font-family: @serif_stack;
 	z-index: 5;
 	background: rgba(255, 239, 230, 0.7);
 	position: absolute;

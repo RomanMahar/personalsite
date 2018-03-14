@@ -15,38 +15,29 @@
 <main class="hero" id="section-0">
 	<div id="svg-bg" style="background: linear-gradient(to bottom, #5b79ff 0%,#1e528e 70%,#5b7983 100%);">
 		{% include 'includes/pattern-warm.svg' %}
-		
 	</div>
-	{# <div class="color-overlay"></div> #}
-	
-	    <div class="hero-body-content">
-	    	{% comment %}
-			<div id="cn-tower">
-				{% include 'toronto-skyline.svg' %}
-			</div>
-	    	{% endcomment %}
-	    	
-		    <div class="row">
-		        <div id="site-info-card" class="col-lg-12">
-		        	<h1 class="homepage-heading">{{page.heading}}</h1>
-        			<p class="page-intro">{{ page.intro }}</p>
-        			<ul class="social-links">
-        				<li>
-        					<a href="https://github.com/RomanMahar" target="_blank">
-        						<span class="icon"><i class="fab fa-linkedin-in"></i></span>
-        						<span class="text">LinkedIn</span>
-        					</a>
-        				</li>
-        				<li>
-        					<a href="https://www.linkedin.com/in/omar-rahman-461b4523/"  target="_blank">
-        						<span class="icon"><i class="fab fa-github"></i></span>
-        						<span class="text">GitHub</span>
-        					</a>
-        				</li>
-        			</ul>
-	        	</div>
-		    </div>
-		</div>
+    <div class="hero-body-content">
+	    <div class="row">
+	        <div id="site-info-card" class="col-lg-12">
+	        	<h1 class="homepage-heading">{{page.heading}}</h1>
+    			<p class="page-intro">{{ page.intro }}</p>
+    			<ul class="social-links">
+    				<li>
+    					<a href="https://github.com/RomanMahar" target="_blank">
+    						<span class="icon"><i class="fab fa-linkedin-in"></i></span>
+    						<span class="text">LinkedIn</span>
+    					</a>
+    				</li>
+    				<li>
+    					<a href="https://www.linkedin.com/in/omar-rahman-461b4523/"  target="_blank">
+    						<span class="icon"><i class="fab fa-github"></i></span>
+    						<span class="text">GitHub</span>
+    					</a>
+    				</li>
+    			</ul>
+        	</div>
+	    </div>
+	</div>
 </main> 
 {# End of hero section and start of homePageSections #}
 <div class="container"> 
@@ -64,7 +55,7 @@
 				<div class="col-sm-12 col-md-12 col-lg-7 photo-holder">
 					{% if subpage.main_image %}
 						{% image subpage.main_image width-1000 as sectionPic %}
-							{% include 'includes/foobar.html' %}
+							{% include 'includes/section_pic.html' %}
 					{% endif %}
 				</div>
 				<div class="col-sm-12 col-md-12 col-lg-5">
@@ -75,7 +66,7 @@
 				</div>
 			</div>
 			{% endif %}
-			{# template section for right-oriented homepage sections #}	
+			{# template section for left-oriented homepage sections #}	
 			{% if subpage.orientation == "left" %}
 			<div class="row">
 				<div class="col-sm-12">
@@ -92,7 +83,7 @@
 				<div class="col-sm-12 col-md-12 col-lg-7 photo-holder">
 					{% if subpage.main_image %}
 						{% image subpage.main_image width-1000 as sectionPic %}
-							{% include 'includes/foobar.html' %}
+							{% include 'includes/section_pic.html' %}
 					{% endif %}				
 				</div>
 			</div>
@@ -103,7 +94,7 @@
 
 </div>
 
-{% block extra_js %}
-<script src="{% static 'js/site_pages/home_page.js' %}"></script>
-{% endblock %}
+	{% block extra_js %}
+	<script src="{% static 'js/site_pages/home_page.js' %}"></script>
+	{% endblock %}
 {% endblock %}
