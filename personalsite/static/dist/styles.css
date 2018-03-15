@@ -146,13 +146,13 @@ main.hero {
 }
 .hero-body-content ul.social-links li a:hover {
   text-decoration: none;
-  color: white;
+  color: #4F0A72;
 }
 .hero-body-content ul.social-links li a:hover span {
-  background-color: #4F0A72;
+  background-color: #D0C6DB;
 }
 .hero-body-content ul.social-links li a:hover span.text {
-  border-top: #4F0A72 1px solid;
+  border-top: #D0C6DB 1px solid;
 }
 .hero-body-content ul.social-links li span.icon {
   border-radius: 6px 6px 0 0;
