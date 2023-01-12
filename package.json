@@ -26,6 +26,6 @@
     "react-dom": "^16.2.0",
     "style-loader": "^0.20.1",
     "webpack": "^3.10.0",
-    "webpack-livereload-plugin": "^1.0.0"
+    "webpack-livereload-plugin": "^1.2.0"
   }
 }
